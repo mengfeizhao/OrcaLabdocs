@@ -21,12 +21,15 @@
     <script>
         window.$docsify = {
             // 项目名称
-            name: 'OrcaLab使用文档',
+            name: '',
+            root: './', // 文档根目录（默认当前）
             // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
-            repo:https://github.com/mengfeizhao/OrcaLabdocs.git ,
+            repo:'https://github.com/mengfeizhao/OrcaLabdocs.git' ,
             // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
-            loadSidebar: true,
-            sidebarDisplayLevel: 1,
+            loadSidebar: '_sidebar.md', // 显式加载根目录的_sidebar.md
+            sidebarCollapse: true, // 可选：启用侧边栏折叠功能
+            themeColor: '#0070F3',
+            sidebarDisplayLevel: 6,
             alias: {
             '/.*/_sidebar.md': '/_sidebar.md'
             },
