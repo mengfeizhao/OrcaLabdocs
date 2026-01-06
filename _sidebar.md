@@ -1,20 +1,18 @@
 <div style="text-align: center;">
-  <img src="../../../assets/ORCALOGO.png" alt="ORCA 官方Logo" title="ORCA Logo" width="80" />
+  <img src="/assets/ORCALOGO.png" alt="ORCA 官方Logo" title="ORCA Logo" width="80" />
 </div>
 <p style="text-align: center; font-family: 'Microsoft YaHei', sans-serif; font-size: 16px;">
-  Orca Lab Documentation
+  OrcaLab Documentation
 </p> 
 
 
 
 
 - OrcaLab
-  - [OrcaLab使用文档](README.md)
-- 环境配置
-  - [OrcaSim安装与配置指南](环境配置/OrcaSim安装与配置指南.md)
-  - [GameLauncher_kps安装与配置指南](环境配置/GameLauncher_kps安装与配置指南.md)
-  - [Pico设备安装与开发者模式配置](环境配置/Pico设备安装与开发者模式配置.md)
-- 数据采集与增广
-  - [VR遥操作与数据合成操作指南](数据采集与增广/VR遥操作与数据合成操作指南.md)
-- 强化学习
-  - [IsaacGym到OrcaGym四足强化学习迁移指南](强化学习/IsaacGym到OrcaGym四足强化学习迁移指南.md)
+  - [欢迎使用OrcaLab](ReadME.md)
+- 环境准备
+  - [安装指南](环境准备/OrcaLab安装指南_v1.0.md)
+  - [用户注册与管理](环境准备/用户注册与管理_v1.0.md)
+  - [快速入门仿真案例](环境准备/OrcaLab快速入门仿真示例_v1.0.md)
+- 操作指南
+  - [基础操作指南](操作指南/OrcaLab基础操作指南_v1.0.md)
