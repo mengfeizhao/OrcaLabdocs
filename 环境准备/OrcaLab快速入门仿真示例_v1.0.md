@@ -53,7 +53,7 @@ OrcaLab 会自动加载工作目录下的 `.orcalab/config.toml` 配置文件。
 
    - `run_ackerman` - 小汽车仿真
 
-    ![](img/playground/run_ackerman.png)
+   ![](img/playground/run_ackerman.png)
 
 4. 启动运行仿真程序后，W、S、A、D 键可控制前后左右移动方向。
 
