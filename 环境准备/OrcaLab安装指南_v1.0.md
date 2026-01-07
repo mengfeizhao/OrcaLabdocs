@@ -104,9 +104,17 @@ dpkg -l | grep libx265
 orcalab
 ```
 
+--- 
+## 五、OrcaLab升级方法
+有升级包可用时
+```bash
+# 需要添加 --upgrade 参数
+pip install --upgrade orca-lab
+```
+
 ---
 
-## 五、OrcaLab卸载方法
+## 六、OrcaLab卸载方法
 
 如果需要卸载 OrcaLab：
 
@@ -121,9 +129,9 @@ conda env remove -n orcalab
 
 ---
 
-## 六、常见问题排查
+## 七、常见问题排查
 
-### 6.1 安装问题
+### 7.1 安装问题
 
 #### 问题：pip 安装失败，下载速度慢
 
@@ -152,7 +160,7 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate orcalab
 ```
 
-### 6.2 运行问题
+### 7.2 运行问题
 
 #### 问题：软件启动后无法连接服务器
 
@@ -166,7 +174,7 @@ conda activate orcalab
 
 ---
 
-## 七、技术支持
+## 八、技术支持
 
 如遇到问题，请：
 
