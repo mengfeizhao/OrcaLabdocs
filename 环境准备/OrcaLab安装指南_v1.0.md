@@ -164,16 +164,7 @@ conda activate orcalab
 
  ![](img/install/offline-login.jpg) 
 
-#### 问题：注册时收不到验证码（Gmail）
-
-**解决方案**：
-
-- 使用非 Gmail 邮箱注册
-- 检查垃圾邮件文件夹
-- 联系系统管理员配置邮件服务器 SPF/DKIM 记录
-
 ---
-
 
 ## 七、技术支持
 
