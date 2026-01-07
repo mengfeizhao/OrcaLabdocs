@@ -2,8 +2,7 @@
 
 # Orca Lab 使用文档
 
-发布时间：2025-06-10
+发布时间：2026-01-08
 
 
-[开始阅读](setup/installation/binaries_installation.md)
-[查看侧边栏](_sidebar.md)
+[开始阅读](/README.md)
