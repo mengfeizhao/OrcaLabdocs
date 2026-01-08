@@ -56,22 +56,22 @@ sudo apt install android-tools-adb android-tools-fastboot
 
  ### 1.3 场景资产包准备 
 
- 以 `青龙机器人` + `超市场景` 为例。 
+ 以下内容，以 `青龙机器人` + `超市场景` 为例，展示一个数据采集场景任务，必需要准备的机器人资产和场景资产。
   
  **订阅相关资产**
 
 1. 资产库链接: https://simassets.orca3d.cn/
 
-2. 资产中心 → 生活资产 → 订阅 **ShopScene_Scaning**
+2. 资产中心 → 订阅 **ShopScene_Scaning**
 ![](img/shop_scan.png)
 
-3. 资产中心 → 机器人资产 → 订阅 **openloong**
+1. 资产中心 → 订阅 **openloong**
 ![](img/openloong.png)
 
   
 ## 二、遥操作数据采集
 
-完成以上准备工作后，以 `青龙机器人` + `超市场景` 为例，开始数据采集任务。
+完成以上准备工作后，以 `青龙机器人` + `超市场景` 为例，添加布局后，开始数据采集任务。
 
  - **确认PICO 连接正常**：
    - 启动OrcaGymCtrl后，会进入3D程序界面：左侧显示三维红蓝绿坐标轴；
@@ -99,16 +99,16 @@ orcalab
 
 5. 在 OrcaLab 客户端菜单栏中，选择 **打开布局**，加载 `shop_openloong.json` 文件。
 ```bash
-#JSON 文件路径：
+#布局JSON 文件路径（注：布局文件定义了机器人初始位置及姿态）
   ~/OrcaManipulation/src/examples/超市场景青龙机器人数采案例/shop_openloong.json
 ```
-![]()
+![](img/shop_layout.png)
 
 ### 2.2 启动仿真
 
 1. 点击界面右上角 **绿色启动按钮**
 2. 选择 **无仿真程序（手动启动）**
-![]()
+![](img/shop_sim1.png)
 
 ### 2.3 开启数采脚本
 
