@@ -33,14 +33,11 @@ conda activate orcalab  # 激活你创建的 OrcaLab 环境名称
 #### 步骤 4：在当前目录启动 OrcaLab
 
 ```bash
-# 在项目根目录启动 OrcaLab（会自动加载 .orcalab/config.toml）
-orcalab .
-
-# 或者直接启动（默认使用当前目录作为工作目录）
+# 在项目根目录OrcaPlayground下启动 OrcaLab（此时才会自动加载 .orcalab/config.toml）
 orcalab
 ```
 
-OrcaLab 会自动加载工作目录下的 `.orcalab/config.toml` 配置文件。
+⚠️ **注意** ：如果之前已经打开了OrcaLab，订阅资产后，需要关闭Orcalab客户端，再次启动时自动触发下载订阅资产。
 
 #### 步骤 5：在 OrcaLab 中启动示例
 
@@ -123,9 +120,9 @@ OrcaLab 配置文件位于 `.orcalab/config.toml`，OrcaLab 启动时会自动�
 - `run_xbot_orca` - XBot 仿真
 - `run_ackerman` - 四轮底盘小汽车仿真
 
-### 添加新程序
+### 添加新仿真程序
 
-如需添加新的外部程序，编辑 `.orcalab/config.toml` 文件，在 `[[external_programs.programs]]` 部分添加新条目。
+如需添加新的仿真程序，编辑 `.orcalab/config.toml` 文件，在 `[[external_programs.programs]]` 部分添加新条目。
 
 #### 配置格式
 
@@ -209,7 +206,7 @@ description = "直接运行脚本文件"
 
 #### 验证配置
 
-添加新程序后，建议：
+添加新仿真程序后，建议：
 
 1. **检查重复**：确认新程序的 `name` 和 `display_name` 与所有已配置程序都不重复
 2. **测试启动**：在 OrcaLab 中尝试启动新程序，确认命令和参数正确
