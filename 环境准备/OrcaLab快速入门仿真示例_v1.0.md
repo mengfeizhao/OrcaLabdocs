@@ -3,18 +3,9 @@
 
 ## 🎯一、 快速开始一个仿真示例
 
-#### 步骤 1：登录资产库订阅OrcaPlaygroundAssets
-  
-```bash
-登录资产库地址： https://simassets.orca3d.cn/ 
-订阅资产包名称：OrcaPlaygroundAssets
-```
-![](img/playground/play_assets.png)
-
-#### 步骤 2：github获取OrcaPlayground代码仓库，已集成 OrcaLab 支持。
+#### 步骤 1：从github获取OrcaPlayground代码仓库，已集成 OrcaLab 支持。
 
 ```bash
-mkdir OrcaPlayground
 git clone https://github.com/openverse-orca/OrcaPlayground.git
 
 # 进入项目目录
@@ -23,12 +14,20 @@ cd OrcaPlayground
 # 安装项目依赖
 pip install -r requirements.txt
 ```
+#### 步骤2：登录资产库订阅OrcaPlaygroundAssets
+  
+```bash
+登录资产库地址： https://simassets.orca3d.cn/ 
+订阅资产包名称：OrcaPlaygroundAssets
+```
+- 订阅资产：找到OrcaPlaygroundAssets资产并订阅
+![](img/playground/play_assets.png)
 
-#### 步骤 3：激活 OrcaLab 的 conda 环境并启动
+#### 步骤 3：激活 OrcaLab 的 conda 环境
 
 ```bash
 # 激活 OrcaLab 的 conda 环境（根据你的环境名称调整）
-conda activate orcalab  # 你的 OrcaLab 环境名称
+conda activate orcalab  # 激活你创建的 OrcaLab 环境名称
 ```
 
 #### 步骤 4：在当前目录启动 OrcaLab
@@ -40,7 +39,6 @@ orcalab .
 # 或者直接启动（默认使用当前目录作为工作目录）
 orcalab
 ```
-
 
 OrcaLab 会自动加载工作目录下的 `.orcalab/config.toml` 配置文件。
 
@@ -123,7 +121,7 @@ OrcaLab 配置文件位于 `.orcalab/config.toml`，OrcaLab 启动时会自动�
 - `run_legged_train` - 足式机器人训练
 - `run_wheeled_chassis` - 轮式底盘仿真
 - `run_xbot_orca` - XBot 仿真
-- `run_ackerman` - XBot 仿真
+- `run_ackerman` - 四轮底盘小汽车仿真
 
 ### 添加新程序
 
