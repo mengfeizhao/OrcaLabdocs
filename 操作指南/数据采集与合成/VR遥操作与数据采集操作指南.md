@@ -5,7 +5,7 @@
 ---
 
 ## 一、数据采集软件硬件环境准备
- - **OrcaManipulation** 开源代码库下载
+ - **OrcaGym OrcaManipulation** 开源代码库下载
  - **VR操作设备** （如Pico Ultra 4配套手柄）
  - **场景资源** 订阅
  
