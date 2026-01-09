@@ -123,13 +123,14 @@ cd ~/OrcaManipulation/src/examples/dataCollection
 #启动数据采集脚本
 python data_collection_tele.py
 ```
-
+![](img/run_shop_scan.png)
 ### 2.4 VR遥操作开始数据采集
 
 1. **机械臂复位** 进入抓取模式
    - 依次按压 **左摇杆**、**右摇杆**
    - 仿真环境中机械臂可移动，机器人进入抓取操作模式
 ![](img/vr_hand.png)
+
 2. **手柄功能映射**
 
    - **左手手柄**
@@ -140,8 +141,10 @@ python data_collection_tele.py
      - **B 键长按**：右手抓取
      - **A 键长按**：右手放开
 
+## 📖 更多信息
 
-
+- OrcaManipulation 主仓库：https://github.com/openverse-orca/OrcaManipulation
+- OrcaManipulation详细说明：查看 `README.md`
 
 
 
