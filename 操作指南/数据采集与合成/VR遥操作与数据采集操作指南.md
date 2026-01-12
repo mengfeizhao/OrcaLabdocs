@@ -104,6 +104,13 @@ orcalab
 ```
 ![](img/shop_layout.png)
 
+6.将shopScense示例场景的example_shop.yaml文件，重命名为example
+```bash
+#example_shop.yaml文件路径
+~/OrcaManipulation/src/examples/dataCollection
+```
+![](img/shop_example1.png)
+
 ### 2.2 启动仿真
 
 1. 点击界面右上角 **绿色启动按钮**
@@ -120,10 +127,11 @@ conda activate orcalab
 2. 进入数采脚本目录并启动
 ```bash
 cd ~/OrcaManipulation/src/examples/dataCollection
-#启动数据采集脚本
+#启动数据采集脚本,确保example.yaml文件中资产版本配置正确
 python data_collection_tele.py
 ```
 ![](img/run_shop_scan.png)
+
 ### 2.4 VR遥操作开始数据采集
 
 1. **机械臂复位** 进入抓取模式
@@ -141,11 +149,69 @@ python data_collection_tele.py
      - **B 键长按**：右手抓取
      - **A 键长按**：右手放开
 
+
+## 三、数据采集任务配置文件说明
+详细解析任务配置示例yaml文件中的各个字段含义，并指导从零开始配置一个属于你自己的场景任务配置文件。
+适用于第一次使用 OrcaLab 进行任务配置,需要自行搭建场景并完成数据采集任务的用户。
+
+### 3.1 配置文件核心模块说明
+| 模块分类 | 模块名称 | 核心作用 | 关键说明 |
+|----------|----------|----------|----------|
+| 基础信息 | level_name | 场景名称标识 | 用于日志记录、数据集区分、任务回放，建议使用业务语义名称（如pharmacy_pick） |
+| 基础信息 | type | 任务类型定义 | 支持pick_and_place（抓取放置）、scan_qr（二维码扫描），决定task模块配置结构 |
+| 动态物体 | actor | 动态加载物体配置 | 定义任务中随机生成的物体（药品/瓶子/盒子等）的名称、路径、关节、随机规则 |
+| 场景灯光 | light | 灯光参数配置 | 控制场景灯光的数量、位置、随机策略，增强数据多样性 |
+| 任务逻辑 | task | 任务目标配置 | 与顶层type保持一致，定义任务目标物体/区域及放置位点 |
+
+### 3.2 配置字段详细说明
+| 字段分类 | 具体字段 | 配置示例/格式 | 关键注意事项 |
+|----------|----------|---------------|--------------|
+| 基础信息 | level_name | level_name: "example" | 字符串格式，需唯一标识场景 |
+| 基础信息 | type | type: "pick_and_place" | 仅支持pick_and_place/scan_qr |
+| actor模块 | names | names: ["A", "B", "C", "D", "E"] | 数组格式，与spawnable一一对应 |
+| actor模块 | spawnable | spawnable: ["assets/.../prefabs/kps/pipalu"] | 指向资产库prefab路径，路径错误会导致物体无法生成 |
+| actor模块 | joints | joints: [...] | 定义物体根关节/可控关节，用于位姿控制 |
+| actor模块 | joints_dof | joints_dof: [6, 6, 6, 6, 6] | 1=单自由度/3=球形关节/6=刚体关节，数量需与joints一致 |
+| actor模块 | random.qpos | qpos: true | true=关节位置随机化/false=固定 |
+| actor模块 | random.nums | nums: [1, 5] | 数组格式，定义actor生成数量范围（1~5个） |
+| actor模块 | random.six_dof.center | center: [2.47, -2.33, 1.24] | OrcaEngine坐标系下的随机中心点 |
+| actor模块 | random.six_dof.bound_position | bound_position: [[-0.1, 0.1], [-0.1, 0.1], [0, 0]] | XYZ方向偏移范围，最小值=最大值则该维度固定 |
+| actor模块 | random.six_dof.bound_rotation | bound_rotation: [[0, 0], [0, 0], [0, 1]] | 绕XYZ轴旋转范围（弧度） |
+| light模块 | names | names: ["spotlight1"] | 灯光实例名称，数组格式 |
+| light模块 | spawnable | spawnable: ["prefabs/spotlight"] | 灯光prefab路径 |
+| light模块 | random.position/rotation | position: false<br>rotation: false | 是否启用位置/旋转随机 |
+| light模块 | random.center/bound_position/bound_rotation | center: [0, 0, 0]<br>bound_position: [[-1, 1], [-1, 1], [0, 2]]<br>bound_rotation: [[0, 3.14159], [0, 3.14159], [0, 3.14159]] | 同actor模块six_dof规则 |
+| light模块 | random.nums | nums: [1, 1] | 每次生成的灯光数量 |
+| light模块 | random.cycle | cycle: 20 | 每20个任务更新一次灯光配置 |
+| task模块 | type | type: "pick_and_place" | 必须与顶层type一致 |
+| task模块 | goal.name | name: "MedicineChest" | 目标物体/区域名称 |
+| task模块 | goal.site | site: "MedicineChest_site" | 场景中定义的放置位点，不存在则任务失败 |
+
+### 3.3 新场景配置步骤
+| 步骤分类 | 具体步骤 | 操作说明 | 关键注意事项 |
+|----------|----------|----------|--------------|
+| 前期准备 | 明确任务类型 | 选择pick_and_place/scan_qr | 决定后续配置字段结构 |
+| 前期准备 | 验证资产路径 | 确认所有spawnable路径有效 | 路径错误会导致物体/灯光无法生成 |
+| 核心配置 | 配置actor参数 | 填写names、spawnable、joints、joints_dof | joints_dof数量需与joints一致 |
+| 核心配置 | 设置actor随机规则 | 配置random下qpos、nums、six_dof | 随机范围过大会导致物体穿模/掉落 |
+| 核心配置 | 配置light参数 | 填写names、spawnable及随机规则 | cycle参数可提升数据多样性 |
+| 核心配置 | 配置task目标 | 填写type、goal.name、goal.site | 确认site在场景中真实存在 |
+| 验证测试 | 小规模验证 | 将nums设为[1,1]测试配置 | 先验证再扩大随机范围 |
+
+### 3.4 常见配置错误与排查
+| 错误类型 | 错误描述 | 排查建议 |
+|----------|----------|----------|
+| 资产加载 | spawnable路径错误 | 核对资产库prefab路径，确保路径无拼写错误 |
+| 加载失败 | joints与joints_dof数量不一致 | 检查两个字段的数组长度，保持一一对应 |
+| 物体异常 | 随机范围过大 | 缩小six_dof的bound_position/bound_rotation范围 |
+| 任务失败 | site名称不存在 | 确认场景中存在该site名称，或修正goal.site配置 |
+
+
+
 ## 📖 更多信息
 
 - OrcaManipulation 主仓库：https://github.com/openverse-orca/OrcaManipulation
 - OrcaManipulation详细说明：查看 `README.md`
-
 
 
 
