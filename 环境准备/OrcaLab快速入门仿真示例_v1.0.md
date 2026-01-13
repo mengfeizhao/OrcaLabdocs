@@ -224,5 +224,5 @@ orcalab --init-config
 
 ## 📖 更多信息
 
-- OrcaGym 主仓库：https://github.com/openverse-orca/OrcaGym
+- OrcaPlayground 主仓库：https://github.com/openverse-orca/OrcaPlayground
 - 各示例详细说明：查看 `examples/*/README.md`
