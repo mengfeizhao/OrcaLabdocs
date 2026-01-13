@@ -11,6 +11,9 @@ git clone https://github.com/openverse-orca/OrcaPlayground.git
 # 进入项目目录
 cd OrcaPlayground
 
+# 激活 OrcaLab 的 conda 环境（根据你的环境名称调整）
+conda activate orcalab  # 激活你创建的 OrcaLab 环境名称
+
 # 安装项目依赖
 pip install -r requirements.txt
 ```
