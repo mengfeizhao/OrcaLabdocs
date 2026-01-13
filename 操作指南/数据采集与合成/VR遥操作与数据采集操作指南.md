@@ -174,7 +174,7 @@ python data_collection_tele.py
 | actor模块 | joints_dof | joints_dof: [6, 6, 6, 6, 6] | 1=单自由度/3=球形关节/6=刚体关节，数量需与joints一致 |
 | actor模块 | random.qpos | qpos: true | true=关节位置随机化/false=固定 |
 | actor模块 | random.nums | nums: [1, 5] | 数组格式，定义actor生成数量范围（1~5个） |
-| actor模块 | random.six_dof.center | center: [2.47, -2.33, 1.24] | OrcaEngine坐标系下的随机中心点 |
+| actor模块 | random.six_dof.center | center: [2.47, -2.33, 1.24] | 世界坐标系下的随机中心点 |
 | actor模块 | random.six_dof.bound_position | bound_position: [[-0.1, 0.1], [-0.1, 0.1], [0, 0]] | XYZ方向偏移范围，最小值=最大值则该维度固定 |
 | actor模块 | random.six_dof.bound_rotation | bound_rotation: [[0, 0], [0, 0], [0, 1]] | 绕XYZ轴旋转范围（弧度） |
 | light模块 | names | names: ["spotlight1"] | 灯光实例名称，数组格式 |
