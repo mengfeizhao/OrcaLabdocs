@@ -216,24 +216,19 @@ orcalab
 
 如果要近距离查看在3D视图中的某个物体，可以在大纲中的树状菜单中，点击该节点，或者直接在视图中左键选中该物体，使用"右键+z"，切换到该对象。
 
-### 编辑与小O
+### 编辑
 
-该模块主要有编辑、小O两个功能，【编辑】主要负责资产Transform属性编辑（Position、Rotation、Uniform
-Scale），【小O】提供AI布局功能。
+该模块主要有编辑两个功能，【编辑】主要负责资产Transform属性编辑（Position、Rotation、Uniform
+Scale）。
 
-<img src="img/客户端基础操作指、南编辑.png" width="77%" >
-![](img/客户端基础操作指南/编辑.png)
+<img src="img/客户端基础操作指南/编辑.png" width="77%" >
 
-![](img/)
-
-![](img/客户端基础操作指南/小O.png)
 
 【编辑】功能：在大纲列表或视图中选中资产，右侧【编辑栏】会显示该物品的Transform信息，包含Position、Rotation、Uniform
 Scale，可点击直接输入数字进行精确修改，同时也可通过滑动在鼠标移至数据条时出现的箭头进行相关参数的调整。
 
 <img src="img/客户端基础操作指南/大纲-视图-编辑.png" width="77%" >
 
-【小O】在资产库中订阅【room_asset】资产后，在输入栏按照提示输入相应描述，可在视图中自动生成相应要求的布局。
 
 ### 资产与终端
 
